@@ -9,6 +9,12 @@ import Vision from './Vision'
 import Approach from './Approach'
 import Navbar from './Navbar'
 import AddCurtain from './AddCurtain'
+import Cart from './Cart'
+import SubproductsPage from './SubproductsPage';
+import LoginPage from './LoginPage'
+// import SignupPage from "./components/SignupPage"; 
+import SignupPage from './SignUpPage'// Import the SignupPage component
+
 
 function ConnectivePage() {
   return (
@@ -25,6 +31,12 @@ function ConnectivePage() {
           <Route path='/vision' element = {<Vision/>}/>
           <Route path='/Approach' element = {<Approach/>}/>
           <Route path = '/curtains/Addcurtains' element = {<AddCurtain className = "absolute"/>}/>
+          <Route path='/Cart' element = {<Cart/>}/>
+          <Route path="/subproducts/:productId" element={<SubproductsPage />} />
+          <Route path='/Login' element = {<LoginPage/>}/>
+          <Route path="/signup" element={<SignupPage/>} />
+
+
         </Routes>
         <Footer/>
     </div>

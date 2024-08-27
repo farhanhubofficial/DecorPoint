@@ -7,7 +7,45 @@
       "material": "Cotton",
       "color": "Blue",
       "size": "60x84 inches",
-      "image": "Acoustic-Curtains/ac15.jpg"
+      "image": "Acoustic-Curtains/ac15.jpg",
+      "subproducts": [
+        {
+          "id": "1",
+          "name": "Muddey Variant A",
+          "price": "5",
+          "material": "Cotton",
+          "color": "Light Blue",
+          "size": "50x70 inches",
+          "image": "../src/Images/ac2.jpg"
+        },
+        {
+          "id": "8.2",
+          "name": "Muddey Variant ",
+          "price": "5",
+          "material": "Cotton",
+          "color": "Light Blue",
+          "size": "50x70 inches",
+          "image": "Acoustic-Curtains/ac10.jpg"
+        },
+        {
+          "id": "8.3",
+          "name": "Muddey Variant A",
+          "price": "5",
+          "material": "Cotton",
+          "color": "Light Blue",
+          "size": "50x70 inches",
+          "image": "Acoustic-Curtains/ac10.jpg"
+        },
+        {
+          "id": "8.4",
+          "name": "Muddey Variant A",
+          "price": "5",
+          "material": "Cotton",
+          "color": "Light Blue",
+          "size": "50x70 inches",
+          "image": "Acoustic-Curtains/ac10.jpg"
+        }
+      ]
     },
     {
       "id": "10",
@@ -1151,6 +1189,15 @@
       "color": "yellow",
       "size": "565 by 676",
       "material": "kaki2"
+    },
+    {
+      "id": "3456",
+      "name": "mkuuu",
+      "price": 565,
+      "image": "Plain-Curtainns/pl2.jpg",
+      "color": "red",
+      "size": "35",
+      "material": "kaki"
     }
   ]
 }

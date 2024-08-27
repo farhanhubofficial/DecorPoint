@@ -53,58 +53,55 @@ export default curtainSlice.reducer
 
 
 
-// import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-// import axios from "axios";
-// const initialState = {
-//   curtains: [],
-//   status: "idle",
-//   error: null,
-// };
-// export const fetchCurtains = createAsyncThunk(
-//   "curtains/fetchCurtains",
-//   async () => {
-//     const response = await axios.get("http://localhost:3002/TotalCurtains");
-//     return response.data;
-//   }
-// );
 
-// export const AddCurtains = createAsyncThunk(
-//   "curtains/addCurtains",
-//   async (newCurtain) => {
-//     const response = await axios.post(
-//       "http://localhost:3002/TotalCurtains",
-//       newCurtain
-//     );
-//     return response.data;
-//   }
-// );
 
-// export const curtslice = createSlice({
-//   name: "curtains",
-//   initialState,
-//   reducers: {},
-//   extraReducers: (builder) => {
-//     builder
-//       .addCase(fetchCurtains.pending, (state) => {
-//         state.status = "loading";
-//         state.error = null;
-//       })
-//       .addCase(fetchCurtains.fulfilled, (state, action) => {
-//         state.status = "succeded";
-//         state.curtains = action.payload;
-//       })
-//       .addCase(fetchCurtains.rejected, (action, state) => {
-//         state.status = "failed";
-//         state.error = action.error.message;
-//       })
 
-//       .addCase(AddCurtains.fulfilled, (state, action) => {
-//         console.log("hey",action.payload);
-//       });
-//   },
+// import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+// import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs } from "firebase/firestore";
+// import { db } from "../firebaseConfig";
+
+// const curtainsCollection = collection(db, "curtains");
+
+// export const curtainsApi = createApi({
+//   reducerPath: "curtainsApi",
+//   baseQuery: fetchBaseQuery(),
+//   endpoints: (builder) => ({
+//     fetchCurtains: builder.query({
+//       async queryFn() {
+//         const querySnapshot = await getDocs(curtainsCollection);
+//         const curtains = querySnapshot.docs.map((doc) => ({
+//           id: doc.id,
+//           ...doc.data(),
+//         }));
+//         return { data: curtains };
+//       },
+//     }),
+//     addCurtain: builder.mutation({
+//       async queryFn(newCurtain) {
+//         await addDoc(curtainsCollection, newCurtain);
+//         return { data: "Curtain added" };
+//       },
+//     }),
+//     updateCurtain: builder.mutation({
+//       async queryFn({ id, updatedCurtain }) {
+//         const curtainDoc = doc(db, "curtains", id);
+//         await updateDoc(curtainDoc, updatedCurtain);
+//         return { data: "Curtain updated" };
+//       },
+//     }),
+//     deleteCurtain: builder.mutation({
+//       async queryFn(id) {
+//         const curtainDoc = doc(db, "curtains", id);
+//         await deleteDoc(curtainDoc);
+//         return { data: "Curtain deleted" };
+//       },
+//     }),
+//   }),
 // });
-// export const selectedAllCurtains = (state) => state.Curtains.curtains;
-// export const selectCurtainStatus = (state) => state.curtains.status;
-// export const selectcurtainError = (state) => state.curtains.error;
 
-// export default curtslice.reducer;
+// export const {
+//   useFetchCurtainsQuery,
+//   useAddCurtainMutation,
+//   useUpdateCurtainMutation,
+//   useDeleteCurtainMutation,
+// } = curtainsApi;
