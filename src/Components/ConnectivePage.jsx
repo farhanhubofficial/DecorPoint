@@ -14,6 +14,8 @@ import SubproductsPage from './SubproductsPage';
 import LoginPage from './LoginPage'
 // import SignupPage from "./components/SignupPage"; 
 import SignupPage from './SignUpPage'// Import the SignupPage component
+import AdminPanel from './AdminPanel'
+import ProtectedRoute from './ProtectedRoute'
 
 
 function ConnectivePage() {
@@ -35,6 +37,15 @@ function ConnectivePage() {
           <Route path="/subproducts/:productId" element={<SubproductsPage />} />
           <Route path='/Login' element = {<LoginPage/>}/>
           <Route path="/signup" element={<SignupPage/>} />
+          <Route path='/admin' element =
+          
+          {
+          //   <ProtectedRoute>
+         
+          // </ProtectedRoute>
+           <AdminPanel/>
+          
+          } />
 
 
         </Routes>
